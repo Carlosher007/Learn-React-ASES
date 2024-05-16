@@ -7,7 +7,7 @@ export default function App (){
       <FollowCard username='Carlos' isFollowing>
         Un muchacho
       </FollowCard>
-      <FollowCard username='John' isFollowing>
+      <FollowCard username='John' isFollowing={false}>
         Un muchacho 2
       </FollowCard>
     </div>
