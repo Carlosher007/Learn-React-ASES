@@ -1,15 +1,9 @@
-export const FollowCard = ({ infoName, username = "unknown", isFollowing, children }) => {
-  /**
-   * isFollowing es true => texto: Seguiendo
-   * isFollowing es false => texto: Seguir
-   */
-  const mostrarTexto = () => {
-    if (isFollowing === true) {
-      return "Siguiendo"
-    } else {
-      return "Seguir"
-    }
-  }
+export const FollowCard = ({  username = "unknown", isFollowing, children }) => {
+
+  const texto = isFollowing==true ? 'Siguiendo' : 'Seguir'
+  const buttonClassName = isFollowing 
+    ? 'tw-followCard-button is-following'
+    : 'tw-followCard-button'
 
   return (
     <div className='tw-followCard'>
@@ -22,7 +16,7 @@ export const FollowCard = ({ infoName, username = "unknown", isFollowing, childr
       </header>
 
       <aside className='tw-followCard-aside'>
-        <button className='tw-followCard-button'>{mostrarTexto()}</button>
+        <button className={buttonClassName}>{texto}</button>
       </aside>
 
     </div>
