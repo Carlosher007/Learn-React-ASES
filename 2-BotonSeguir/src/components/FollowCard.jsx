@@ -1,11 +1,19 @@
-export const FollowCard = ({  username = "unknown", isFollowing, children }) => {
+import { useState } from "react"
 
+export const FollowCard = ({  username = "unknown",  children, initialIsFollowing }) => {
+
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
+  
   const texto = isFollowing==true ? 'Siguiendo' : 'Seguir'
   const buttonClassName = isFollowing 
     ? 'tw-followCard-button is-following'
     : 'tw-followCard-button'
 
-  return (
+  const cambiarIsFollowing = () => {
+    setIsFollowing(!isFollowing)
+  }
+
+    return (
     <div className='tw-followCard'>
       <header className='tw-followCard-header'>
         <img className='tw-followCard-image' alt="Avatar" src={`https://unavatar.io/${username}`} />
@@ -16,7 +24,7 @@ export const FollowCard = ({  username = "unknown", isFollowing, children }) => 
       </header>
 
       <aside className='tw-followCard-aside'>
-        <button className={buttonClassName}>{texto}</button>
+        <button onClick={cambiarIsFollowing} className={buttonClassName}>{texto}</button>
       </aside>
 
     </div>
